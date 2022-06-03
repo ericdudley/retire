@@ -3,16 +3,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import DateAdapter from "@date-io/moment";
 import Form from "./Form";
-import {
-  Typography,
-  Link,
-  AppBar,
-  Toolbar,
-  Container,
-  Paper,
-  Box,
-} from "@mui/material";
-import logo from "./assets/logo-small.png";
+import { Typography, Link, Container, Paper, Box } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 
 const theme = createTheme();

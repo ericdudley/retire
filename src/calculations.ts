@@ -27,7 +27,6 @@ export const getRemainingPaychecks = (
 export const getTotalPaychecks = (
   paycheckFrequency: PaycheckFrequency
 ): number => {
-  const today = moment();
   if (paycheckFrequency === "monthly") {
     return 12;
   }
