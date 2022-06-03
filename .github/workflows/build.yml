@@ -1,0 +1,30 @@
+name: Build Website
+on:
+  push:
+    branches-ignore:
+      - gh-pages
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Cache dependencies
+        id: cache-dependencies
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-dependencies-${{ hashFiles('package-lock.json') }}
+      - name: Install deps
+        if: steps.cache-dependencies.outputs.cache-hit != 'true'
+        run: npm install
+      - name: Build for production
+        run: npm run build
+      - name: Create CNAME file
+        run: echo "401k.ericdudley.com" > ./dist/CNAME
+      - name: Deploy
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
