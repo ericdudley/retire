@@ -1,4 +1,4 @@
-name: Build Website
+name: React Website Build
 on:
   push:
     branches-ignore:
