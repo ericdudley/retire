@@ -44,6 +44,7 @@ export default function App() {
               <a
                 href="https://www.github.com/ericdudley/retire"
                 target="_blank"
+                rel="noreferrer"
               >
                 <img
                   src={github}
@@ -51,7 +52,11 @@ export default function App() {
                   style={{ height: "1.2rem", marginLeft: "0.25rem" }}
                 />
               </a>
-              <a href="https://www.buymeacoffee.com/ericdudley" target="_blank">
+              <a
+                href="https://www.buymeacoffee.com/ericdudley"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img
                   src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png"
                   alt="Buy Me A Coffee"
