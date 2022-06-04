@@ -5,6 +5,7 @@ import DateAdapter from "@date-io/moment";
 import Form from "./Form";
 import { Typography, Link, Container, Paper, Box } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers";
+import github from "./assets/github.svg";
 
 const theme = createTheme();
 
@@ -30,21 +31,39 @@ export default function App() {
             <Box height="32px" />
             <Form />
           </Paper>
-          <Box>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              align="center"
-              gutterBottom
-            >
-              {"Copyright © "}
-              <Link color="inherit" href="https://ericdudley.com/">
-                Eric Dudley
-              </Link>{" "}
-              {new Date().getFullYear()}
-              {"."}
-            </Typography>
-            <Typography variant="caption"></Typography>
+          <Box display="flex" flexDirection="column" alignItems="center">
+            <Box display="flex" alignItems="center">
+              <Typography variant="body2" color="text.secondary" gutterBottom>
+                {"Copyright © "}
+                <Link color="inherit" href="https://ericdudley.com/">
+                  Eric Dudley
+                </Link>{" "}
+                {new Date().getFullYear()}
+                {"."}
+              </Typography>
+              <a
+                href="https://www.github.com/ericdudley/retire"
+                target="_blank"
+              >
+                <img
+                  src={github}
+                  alt="GitHub"
+                  style={{ height: "1.2rem", marginLeft: "0.25rem" }}
+                />
+              </a>
+              <a href="https://www.buymeacoffee.com/ericdudley" target="_blank">
+                <img
+                  src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png"
+                  alt="Buy Me A Coffee"
+                  style={{
+                    height: "1.2rem",
+
+                    marginLeft: "0.25rem",
+                  }}
+                />
+              </a>
+            </Box>
+
             <Typography variant="body2" color="text.secondary" align="center">
               Disclaimer: Data entered into this calculator will not be
               persisted or sent over the network. This tool was not created by a
