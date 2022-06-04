@@ -96,6 +96,7 @@ export default function Form() {
                 {...params}
               />
             )}
+            disableFuture
             value={lastPaycheckDate}
             onChange={(value) => {
               setLastPaycheckDate(value ? value : undefined);
@@ -122,6 +123,9 @@ export default function Form() {
             </MenuItem>
             <MenuItem key="monthly" value="monthly">
               Monthly
+            </MenuItem>
+            <MenuItem key="semi-monthly" value="semi-monthly">
+              Semi-Monthly
             </MenuItem>
           </TextField>
         </Grid>

@@ -1,6 +1,10 @@
 import moment from "moment";
 
-export type PaycheckFrequency = "weekly" | "bi-weekly" | "monthly";
+export type PaycheckFrequency =
+  | "weekly"
+  | "bi-weekly"
+  | "monthly"
+  | "semi-monthly";
 
 export const getRemainingPaychecks = (
   paycheckFrequency?: PaycheckFrequency,
@@ -13,12 +17,24 @@ export const getRemainingPaychecks = (
   const lastPaycheckMoment = moment(lastPaycheckDate);
   let remainingPaychecks = 0;
 
-  if (paycheckFrequency === "monthly") {
-    remainingPaychecks = 12 - (lastPaycheckMoment.month() + 1);
+  if (lastPaycheckMoment.year() < moment().year()) {
+    return getTotalPaychecks(paycheckFrequency);
+  } else if (lastPaycheckMoment.year() > moment().year()) {
+    return 0;
+  }
+
+  if (paycheckFrequency === "weekly") {
+    remainingPaychecks = (365 - lastPaycheckMoment.dayOfYear()) / 7;
   } else if (paycheckFrequency === "bi-weekly") {
     remainingPaychecks = (365 - lastPaycheckMoment.dayOfYear()) / 14;
-  } else if (paycheckFrequency === "weekly") {
-    remainingPaychecks = (365 - lastPaycheckMoment.dayOfYear()) / 7;
+  } else if (paycheckFrequency === "monthly") {
+    remainingPaychecks = 12 - (lastPaycheckMoment.month() + 1);
+  } else if (paycheckFrequency === "semi-monthly") {
+    const months = 12 - (lastPaycheckMoment.month() + 1);
+    const daysInMonth = lastPaycheckMoment.daysInMonth();
+    const dayOfMonth = lastPaycheckMoment.date();
+    remainingPaychecks =
+      months * 2 + (dayOfMonth >= Math.floor(daysInMonth / 2) ? 0 : 1);
   }
 
   return Math.floor(remainingPaychecks);
@@ -27,14 +43,17 @@ export const getRemainingPaychecks = (
 export const getTotalPaychecks = (
   paycheckFrequency: PaycheckFrequency
 ): number => {
-  if (paycheckFrequency === "monthly") {
-    return 12;
+  if (paycheckFrequency === "weekly") {
+    return 52;
   }
   if (paycheckFrequency === "bi-weekly") {
     return 26;
   }
-  if (paycheckFrequency === "weekly") {
-    return 52;
+  if (paycheckFrequency === "monthly") {
+    return 12;
+  }
+  if (paycheckFrequency === "semi-monthly") {
+    return 24;
   }
 
   return 0;
