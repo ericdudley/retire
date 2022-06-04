@@ -13,7 +13,7 @@ The purpose of this application is to provide a tool for people to calculate wha
 | ------------- | ------------------ | --------------------- | ------------------- | ---------------- |
 | $72,000       | Semi-Monthly       | December of last year | $12,000             | $0               |
 
-You need to contribute $12,000 over 24 paychecks, so you should contribute $500 per paycheck. Each of your paychecks is $3,000, so you should set your contribution percent to `$500 / $3,000` which is `16.6%`. This is the same as dividing `$12,000 / $72,000`.
+You need to contribute $12,000 over 24 paychecks, so you should contribute $500 per paycheck. Each of your paychecks is $3,000, so you should set your contribution percent to `$500 / $3,000` which is `16.7%`. This is the same as dividing `$12,000 / $72,000`.
 
 ## Example 2: Middle of year with YTD contributions
 
