@@ -96,7 +96,6 @@ export default function Form() {
                 {...params}
               />
             )}
-            disableFuture
             value={lastPaycheckDate}
             onChange={(value) => {
               setLastPaycheckDate(value ? value : undefined);
