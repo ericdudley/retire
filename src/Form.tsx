@@ -29,7 +29,7 @@ export default function Form() {
   >(0);
   const [targetContribution, setTargetContribution] = React.useState<
     number | undefined
-  >(20500);
+  >(22500);
 
   // Calculated fields
   const paycheckAmount = getPaycheckAmount(annualSalary, paycheckFrequency);
@@ -155,7 +155,7 @@ export default function Form() {
                 <InputAdornment position="start">$</InputAdornment>
               ),
             }}
-            helperText="Note: The annual maximum for 2022 is $20,500."
+            helperText="Note: The annual maximum for 2023 is $22,500."
           />
         </Grid>
         <Grid item xs={12} md={6}>
