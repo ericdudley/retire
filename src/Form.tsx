@@ -15,6 +15,7 @@ import {
 import { formatMoney, formatPercentage } from "./formatting";
 import { Percentage } from "./Percentage";
 import { DatePicker } from "@mui/x-date-pickers";
+import { getMaxContribution } from "./constants";
 
 export default function Form() {
   // Form fields
@@ -29,7 +30,7 @@ export default function Form() {
   >(0);
   const [targetContribution, setTargetContribution] = React.useState<
     number | undefined
-  >(22500);
+  >(getMaxContribution());
 
   // Calculated fields
   const paycheckAmount = getPaycheckAmount(annualSalary, paycheckFrequency);
@@ -155,7 +156,7 @@ export default function Form() {
                 <InputAdornment position="start">$</InputAdornment>
               ),
             }}
-            helperText="Note: The annual maximum for 2023 is $22,500."
+            helperText={`Note: The annual maximum for ${new Date().getFullYear()} is $${getMaxContribution()}.`}
           />
         </Grid>
         <Grid item xs={12} md={6}>
