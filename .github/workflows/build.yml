@@ -9,12 +9,6 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
-      - name: Cache dependencies
-        id: cache-dependencies
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-dependencies-${{ hashFiles('package-lock.json') }}
       - name: Install deps
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: npm install
