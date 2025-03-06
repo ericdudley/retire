@@ -5,6 +5,8 @@ export function getMaxContribution() {
     return 22500;
   } else if (year === 2024) {
     return 23000;
+  } else if (year === 2025) {
+    return 23500;
   }
 
   return 23000;
